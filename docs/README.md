@@ -3,20 +3,20 @@
 </p>
 
 <p align="center">
-    Easily generate .docx files with JS/TS. Works for Node and on the Browser. :100:
+    使用JS/TS通过固有API轻松生成 .docx 文件. 适用于Node 和 浏览器。 :100:
 </p>
 
 ---
 
-# Welcome
+# 欢迎
 
-## Installation
+## 安装
 
 ```sh
 npm install --save docx
 ```
 
-Then you can `require` or `import` as usual:
+你可以使用 `require` 或者 `import` 引入:
 
 ```js
 let docx = require("docx");
@@ -26,7 +26,7 @@ let docx = require("docx");
 import * as docx from "docx";
 ```
 
-## Basic Usage
+## 基础用法
 
 ```js
 var docx = require("docx");
@@ -48,7 +48,7 @@ exporter.pack("My First Document");
 // Done! A file called 'My First Document.docx' will be in your file system if you used LocalPacker
 ```
 
-## Honoured Mentions
+## 荣誉成员
 
 [@felipeochoa](https://github.com/felipeochoa)
 

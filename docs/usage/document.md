@@ -1,16 +1,17 @@
-# Document
+# 文档（Document）
 
-> The `Document` object is the starting point of your `.docx` journey, this is the literal Word Document. You add all your content such as `Paragraphs` to this `Document`, and at the end export it however you like.
+> `Document` 对象是你开始创造 `.docx` 的起点,这是字面上的文档。您可以将所有内容添加到
+> `Paragraphs`然后添加到这个 `Document`对象,最后根据您的需要导出。
 
-To create a new document, it is very easy:
+要创建一个新文档，如下简单实现：
 
 ```js
 var doc = new docx.Document();
 ```
 
-## Document properties
+## 文档属性
 
-You can add properties to the Word document by specifying options, for example:
+您可以通过指定选项向Word文档添加属性，例如：
 
 ```js
 var doc = new docx.Document({
@@ -20,7 +21,7 @@ var doc = new docx.Document({
 });
 ```
 
-### Full list of options:
+### 完整的选项列表：
 
 ```
 creator
@@ -32,4 +33,4 @@ lastModifiedBy
 revision
 ```
 
-You can mix and match whatever properties you want, or provide no properties.
+您可以混合匹配您想要的任何属性，或不提供任何属性。

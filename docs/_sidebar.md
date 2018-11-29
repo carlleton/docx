@@ -1,17 +1,17 @@
-* [Getting Started](/)
+* [起步](/)
 
-* [Examples](examples.md)
+* [示例](examples.md)
 
 * API
 
-    * [Documentation](https://docx.js.org/api/)
+    * [官方文档](https://docx.js.org/api/)
 
 * Usage
 
-	* [Document](usage/document.md)
-	* [Paragraph](usage/paragraph.md)
-	* [Text](usage/text.md)
-	* [Image](usage/images.md)
+	* [文献](usage/document.md)
+	* [段落](usage/paragraph.md)
+	* [文本](usage/text.md)
+	* [图片](usage/images.md)
 	* [Headers & Footers](usage/headers-and-footers.md)
 	* [Bullet Points](usage/bullet-points.md)
     * [Numbering](usage/numbering.md)

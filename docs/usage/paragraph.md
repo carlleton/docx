@@ -1,10 +1,10 @@
-# Paragraph
+# 段落
 
-> Everything (text, images, graphs etc) in OpenXML is organised in paragraphs.
+> OpenXML中的所有内容 (文本, 图片, 图标等) 都以段落形式组织。
 
-## Example
+## 示例
 
-You can add more text to the paragraph by doing this:
+您可以通过执行以下操作向锻炼添加更多文本：
 
 ```js
 var paragraph = new docx.Paragraph(),
@@ -20,19 +20,19 @@ paragraph.addRun(text);
 var paragraph = new docx.Paragraph("Short hand notation for adding text.");
 ```
 
-After you create the paragraph, you must add the paragraph into the `document`:
+创建段落后，必须将段落添加到`document`
 
 ```js
 doc.addParagraph(paragraph);
 ```
 
-## Styles
+## 样式
 
-To create styles, please refer to the styling Wiki: https://github.com/dolanmiu/docx/wiki/Styling
+要创建样式，请参阅样式Wiki: https://github.com/dolanmiu/docx/wiki/Styling
 
 ![Word 2013 Styles menu](http://content.gcflearnfree.org/topics/233/style_apply_choose.png "Word 2013 Styles menu")
 
-### Heading1 - Heading5
+### 标题1 - 标题5
 
 ```js
 paragraph.heading1();
@@ -42,15 +42,15 @@ paragraph.heading4();
 paragraph.heading5();
 ```
 
-### Title
+### 标题
 
 ```js
 paragraph.title();
 ```
 
-## Text Alignment
+## 文字对齐
 
-To change the text alignment of a paragraph, for center, left, right or justified:
+段落的文本对齐方式：center、left、right、justified：
 
 ```js
 paragraph.center();
@@ -68,37 +68,37 @@ paragraph.right();
 paragraph.justified();
 ```
 
-### Example
+### 示例
 
 ```js
 paragraph.heading1().center();
 ```
 
-The above will create a `heading 1` which is `centered`.
+它将创建一个名称为`heading 1`的样式，并且居中
 
 ## Thematic Break
 
-To add a break in the page, simply add `.thematicBreak()` on a paragraph:
+要在页面中添加中断，只需在段落中添加一个`.thematicBreak()`：
 
 ```js
 var paragraph = new docx.Paragraph("Amazing Heading").heading1().thematicBreak();
 ```
 
-The above example will create a heading with a page break directly under it.
+上面的示例将在标题下创建一个分页符。
 
-## Page Break
+## 分页符
 
-To move to a new page (insert a page break), simply add `.pageBreak()` on a paragraph:
+要移至新页面（插入分页符），只需添加`.pageBreak()`一个段落：
 
 ```js
 var paragraph = new docx.Paragraph("Amazing Heading").heading1().pageBreak();
 ```
 
-The above example will create a heading and start a new page immediately afterwards.
+上面的示例将创建一个标题，然后立即开始一个新页面。
 
-### Page break before:
+### 分页前:
 
-This option (available in word) will make sure that the paragraph will start on a new page (if it's not already on a new page).
+此选项（以单词提供）将确保段落将在新页面上开始（如果它尚未在新页面上）。
 
 ```js
 var paragraph = new docx.Paragraph("Hello World on another page").pageBreakBefore();
@@ -106,8 +106,8 @@ var paragraph = new docx.Paragraph("Hello World on another page").pageBreakBefor
 
 ![Page Break Before in Word](https://user-images.githubusercontent.com/34742290/40176503-df3a8398-59db-11e8-8b9c-d719f13aa8b4.png)
 
-Example: https://github.com/dolanmiu/docx/blob/master/demo/demo15.js
+示例: https://github.com/dolanmiu/docx/blob/master/demo/demo15.js
 
-## Page break control
+## 分页控制
 
-Paragraphs have `.keepLines()` and `.keepNext()` methods that allow restricting page breaks within and between paragraphs. See [this Microsoft article](https://support.office.com/en-us/article/Keep-lines-and-paragraphs-together-d72af534-926f-4c4b-830a-abfc2daa3bfa) for more details)
+段落使用 `.keepLines()` 和 `.keepNext()` 两个方法限制段落内和段落之间的分页符。(请参阅 [this Microsoft article](https://support.office.com/en-us/article/Keep-lines-and-paragraphs-together-d72af534-926f-4c4b-830a-abfc2daa3bfa) 查看详情)
