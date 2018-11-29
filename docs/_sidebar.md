@@ -6,13 +6,13 @@
 
     * [官方文档](https://docx.js.org/api/)
 
-* Usage
+* 用法
 
 	* [文献](usage/document.md)
 	* [段落](usage/paragraph.md)
 	* [文本](usage/text.md)
 	* [图片](usage/images.md)
-	* [Headers & Footers](usage/headers-and-footers.md)
+	* [页眉和页脚](usage/headers-and-footers.md)
 	* [Bullet Points](usage/bullet-points.md)
     * [Numbering](usage/numbering.md)
 	* [Tab Stops](usage/tab-stops.md)

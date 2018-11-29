@@ -1,83 +1,83 @@
-# Text
+# 文本
 
-Paragraphs need `text run` objects. To create text:
+段落中需要 `text run` 对象. 要创建文本:
 
 ```js
 var text = new docx.TextRun("My awesome text here for my university dissertation");
 paragraph.addRun(text);
 ```
 
-Text objects have methods inside which changes the way the text is displayed.
+文本对象具有改变文本显示方式的方法
 
-## Typographical Emphasis
+## 强调重点
 
-More info [here](https://english.stackexchange.com/questions/97081/what-is-the-typography-term-which-refers-to-the-usage-of-bold-italics-and-unde)
+更多信息 [在这里](https://english.stackexchange.com/questions/97081/what-is-the-typography-term-which-refers-to-the-usage-of-bold-italics-and-unde)
 
-### Bold
+### 加粗
 
 ```js
 text.bold();
 ```
 
-### Italics
+### 斜体
 
 ```js
 text.italics();
 ```
 
-### Underline
+### 下划线
 
 ```js
 text.underline();
 ```
 
-### Strike through
+### 删除线
 
 ```js
 text.strike();
 ```
 
-### Double strike through
+### 双删除线
 
 ```js
 text.doubleStrike();
 ```
 
-### Superscript
+### 上标
 
 ```js
 text.superScript();
 ```
 
-### Subscript
+### 下标
 
 ```js
 text.subScript();
 ```
 
-### All Capitals
+### 全部大写
 
 ```js
 text.allCaps();
 ```
 
-### Small Capitals
+### 小写
 
 ```js
 text.smallCaps();
 ```
 
-## Break
+## 文本换行
 
-Sometimes you would want to put text underneath another line of text but inside the same paragraph.
+有时您会希望将文本放在另一行文本下面但在同一段落中。
 
 ```js
 text.break();
 ```
 
-## Chaining
+## 链接
 
-What if you want to create a paragraph which is **_bold_** and **_italic_**?
+如果要创建**粗体**和**斜体**的段落，该怎么办呢？
 
 ```js
 paragraph.bold().italics();
