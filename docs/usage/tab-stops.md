@@ -1,14 +1,14 @@
-# Tab Stops
+# 制表符
 
-> Tab stops are useful, if you are unclear of what they are, [here is a link explaining](https://en.wikipedia.org/wiki/Tab_stop). It enables side by side text which is nicely laid out without the need for tables, or constantly pressing space bar.
+> 制表符很重要，如果您不清楚它们是什么，[这里有一个链接解释](https://en.wikipedia.org/wiki/Tab_stop)。它可以实现并排文本，无需table或者不断按空格键。
 
-**Note**: At the moment, the unit of measurement for a tab stop is counter intuitive for a human. It is using OpenXMLs own measuring system. For example, 2268 roughly translates to 3cm. Therefore in the future, I may consider changing it to percentages or even cm.
+**注意**: 目前，制表位的测量单位对于人类而言是反直觉的。它使用OpenXML自己的测量系统。例如，2268大致翻译为3厘米。因此，在将来，我可能会考虑将其更改为百分比甚至厘米。
 
-![Word 2013 Tabs](http://www.teachucomp.com/wp-content/uploads/blog-4-22-2015-UsingTabStopsInWord-1024x577.png "Word 2013 Tab Stops")
+![Word 2013 标签](http://www.teachucomp.com/wp-content/uploads/blog-4-22-2015-UsingTabStopsInWord-1024x577.png "Word 2013 Tab Stops")
 
-Simply call the relevant methods on the paragraph listed below. Then just add a `tab()` method call to a text object. Adding multiple `tabStops` will mean you would have to chain `tab()` until the desired `tabStop` is selected. Example is shown below.
+只需在下面列出的段落中调用相关方法即可。然后只需`tab()`向文本对象添加方法调用。添加多个`tabStops`意味着您必须链接`tab()`直到`tabStop`选择所需的。示例如下所示。
 
-## Example
+## 示例
 
 ```js
 var paragraph = new docx.Paragraph().maxRightTabStop();
@@ -17,7 +17,7 @@ var rightText = new docx.TextRun("11th November 2015").tab();
 paragraph.addRun(leftText);
 paragraph.addRun(rightText);
 ```
-The example above will create a left aligned text, and a right aligned text on the same line. The laymans approach to this problem would be to either use text boxes or tables. YUK!
+上面的示例将在同一行上创建左对齐文本和右对齐文本。外行解决这个问题的方法是使用文本框或表格。YUK！
 
 ```js
 var paragraph = new docx.Paragraph();
@@ -27,28 +27,28 @@ var text = new docx.TextRun("Second tab stop here I come!").tab().tab();
 paragraph.addRun(text);
 ```
 
-The above shows the use of two tab stops, and how to select/use it.
+以上显示了两个制表位的使用，以及如何选择/使用它。
 
-## Left Tab Stop
+## 左制表符
 ```js
 paragraph.leftTabStop(2268);
 ```
-2268 is the distance from the left side.
+2268是距离左侧的距离。
 
-## Center Tab Stop
+## 居中制表符
 ```js
 paragraph.centerTabStop(2268);
 ```
-2268 is the distance from the left side.
+2268是距离左侧的距离。
 
-## Right Tab Stop
+## 居右制表符
 ```js
 paragraph.rightTabStop(2268);
 ```
-2268 is the distance from the left side.
+2268是距离左侧的距离。
 
-## Max Right Tab Stop
+## 最大右侧制表符
 ```js
 paragraph.maxRightTabStop();
 ```
-This will create a tab stop on the very edge of the right hand side. Handy for right aligning and left aligning text on the same line.
+这将在右侧的边缘创建制表位。方便对齐和左对齐文本在同一行。

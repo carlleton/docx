@@ -1,71 +1,34 @@
-# Bullets and Numbering
+# 项目符号和有序编号
 
-`docx` is quite flexible in its bullets and numbering system, allowing
-the user great freedom in how bullets and numbers are to be styled and
-displayed. E.g., numbers can be shown using Arabic numerals, roman
-numerals, or even ordinal words ("one", "two", "three", ...). The
-format also supports re-using bullets/numbering styles throughout the
-document, so that different lists using the same style need not
-redefine them.
+`docx.js`它的项目符号和有序编号非常灵活，允许用户在其样式和显示方面有很大的自由度。例如，可以使用阿拉伯数字，罗马数字甚至有序词（“一”，“二”，“三”……）来显示数字。该格式还支持在整个文档中重复使用项目符号/编号样式，因此使用相同样式的不同列表不需要重新定义它们。
 
-Because of this flexibility, bullets and numbering in DOCX involves a
-couple of moving pieces:
+由于这种灵活性，DOCX中的项目符号和有序编号涉及一些移动部件：
+1. 文档级项目符号/编号定义（摘要）
+2. 文档级项目符号/编号定义（具体）
+3. 段落级项目符号/编号选择
 
-1.  Document-level bullets/numbering definitions (abstract)
-2.  Document-level bullets/numbering definitions (concrete)
-3.  Paragraph-level bullets/numbering selection
+## 文档级项目符号/编号定义（摘要）
 
-## Document-level bullets/numbering definitions (abstract)
+每个文档都包含一组抽象编号系统定义，这些定义使用这些项目符号/编号定义段落的格式和布局。抽象编号系统定义如何为列表显示项目符号/数字，包括可能使用的任何子列表。因此，每个抽象定义包括一系列_级别_，从直观来看这些_级别_形成从0到顶级逐渐增大的序列，从中又形成了子列表，子子列表等。每个级别包括以下属性：
 
-Every document contains a set of abstract bullets/numbering
-definitions which define the formatting and layout of paragraphs using
-those bullets/numbering. An abstract numbering system defines how
-bullets/numbers are to be shown for lists, including any sublists that
-may be used. Thus each abstract definition includes a series of
-_levels_ which form a sequence starting at 0 indicating the top-level
-list look and increasing from there to descibe the sublists, then
-sub-sublists, etc. Each level includes the following properties:
+*   **level**: 这是堆栈中从0开始的索引
+*   **numberFormat**: 表示应如何生成项目符号或编号。选项包括`bullet`(不用编号)，`decimal`(阿拉伯数字)，`upperRoman`,`lowerRoman`,`hex`和`hex`等等
+*   **levelText**: 这是一个格式化的字符串，它使用`numberFormat`函数的输出并生成要在列表中的每个项之前插入的字符串。您可以使用`%1`,`%2`……来引用每个编号级别之前的数字。因此`%d)`具有数字格式的级别文本`lowerLetter`将导致序列"a)","b)"，...
+*   以及其他一些，您可以在规范部分17.9.6中看到
 
-*   **level**: This its 0-based index in the defintion stack
-*   **numberFormat**: This indicates how the bullet or number should be
-    generated. Options include `bullet` (meaning don't count), `decimal`
-    (arabic numerals), `upperRoman`, `lowerRoman`, `hex`, and many
-    more.
-*   **levelText**: This is a format string using the output of the
-    `numberFormat` function and generating a string to insert before
-    every item in the list. You may use `%1`, `%2`, ... to reference the
-    numbers from each numbering level before this one. Thus a level
-    text of `%d)` with a number format of `lowerLetter` would result in
-    the sequence "a)", "b)", ...
-*   and a few others, which you can see in the OXML spec section 17.9.6
+## 文档级项目符号/编号定义（具体）
 
-## Document-level bullets/numbering defintions (concrete)
+具体定义有点像是具体的子类抽象的定义。它们指定它们的父类，并被允许覆盖某些确定的级别定义。因此，两个列表仅在显示子子列表可以共享相同的摘要编号定义和具体定义略有不同。
 
-Concrete definitions are sort of like concrete subclasses of the
-abstract defintions. They indicate their parent and are allowed to
-override certain level definitions. Thus two lists that differ only in
-how sub-sub-lists are to be displayed can share the same abstract
-numbering definition and have slightly different concrete definitions.
+## 段落级项目符号/编号选择
 
-## Paragraph-level bullets/numbering selection
+为了使用项目符号/有序编号（必须是具体的定义），段落需要选择它，类似将CSS class应用到dom元素上，使用具体的编号定义ID和级别编号应用到段落上。另外，MS Word和LibreOffice通常使用一个“ListParagraph”样式到一个编号的段落上。
 
-In order to use a bullets/numbering definition (which must be
-concrete), paragraphs need to select it, similar to applying a CSS
-class to an element, using both the concrete numbering definition ID
-and the level number that the paragraph should be at. Additionally, MS
-Word and LibreOffice typically apply a "ListParagraph" style to
-paragraphs that are being numbered.
+## 在`docx`中使用项目符号/编号
 
-## Using bullets/numbering in `docx`
+`docx` 包含一个预定义的项目符号样式，您可以使用`para.bullets()`将它添加到您的段落中。如果您需要不同的项目符号或编号样式，您必须使用`docx.Numbering`这个类。
 
-`docx` includes a pre-defined bullet style which you can add to your
-paragraphs using `para.bullets()`. If you require different bullet
-styles or numbering of any kind, you'll have to use the
-`docx.Numbering` class.
-
-First you need to create a new numbering container class and use it to
-create your abstract numbering style, define your levels, and creat
-your concreate numbering style:
+首先，您需要创建一个心得编号容器类，并使用它来创建抽象编号样式，定义您的级别，创建您的编号样式：
 
 ```js
 const numbering = new docx.Numbering();
@@ -78,8 +41,7 @@ abstractNum.createLevel(2, "lowerLetter", "%3)", "start").addParagraphProperty(n
 const concrete = numbering.createConcreteNumbering(abstractNum);
 ```
 
-You can then apply your concrete style to paragraphs using their
-`#setNumbering` method:
+然后，您可以使用对应项的`.setNumbering()`方法将具体样式应用于段落：
 
 ```js
 topLevelP.setNumbering(concrete, 0);
@@ -87,8 +49,7 @@ subP.setNumbering(concrete, 1);
 subSubP.setNumbering(concrete, 2);
 ```
 
-Finally, you need to let your exporter know about your numbering
-styles when you're ready to render the document:
+最终，当您准备渲染文档的时候，你你需要让输出端了解您的编号样式：
 
 ```js
 const packer = new Packer(doc, undefined, undefined, numbering);

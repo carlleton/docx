@@ -1,8 +1,8 @@
-# Bullet Points
+# 项目符号点
 
-## Example
+## 示例
 
-To make a bullet point, simply make a paragraph into a bullet point:
+要制作一个项目符号，只需将一个段落执行项目符号方法`.bullet()`：
 
 ```js
 var text = new docx.TextRun("Bullet points");
@@ -15,7 +15,7 @@ doc.addParagraph(paragraph);
 doc.addParagraph(paragraph2);
 ```
 
-### This will produce:
+### 这将产生:
 
-*   Bullet points
+*   项目符号
 *   Are awesome

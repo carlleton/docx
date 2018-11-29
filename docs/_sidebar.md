@@ -13,16 +13,16 @@
 	* [文本](usage/text.md)
 	* [图片](usage/images.md)
 	* [页眉和页脚](usage/headers-and-footers.md)
-	* [Bullet Points](usage/bullet-points.md)
-    * [Numbering](usage/numbering.md)
-	* [Tab Stops](usage/tab-stops.md)
-    * [Table of Contents](usage/table-of-contents.md)
-	* Styling
-        * [Styling with JS](usage/styling-with-js.md)
-        * [Styling with XML](usage/styling-with-xml.md)
-* Exporting
+	* [项目符号](usage/bullet-points.md)
+    * [编号](usage/numbering.md)
+	* [制表符](usage/tab-stops.md)
+    * [目录](usage/table-of-contents.md)
+	* 样式
+        * [JS样式](usage/styling-with-js.md)
+        * [XML样式](usage/styling-with-xml.md)
+* 导出
 
-    * [Packers](usage/packers.md)
+    * [打包](usage/packers.md)
 
-* [Contribution Guidelines](contribution-guidelines.md)
+* [贡献直男](contribution-guidelines.md)
 
