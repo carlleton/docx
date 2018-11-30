@@ -28,7 +28,7 @@
 
 `docx` 包含一个预定义的项目符号样式，您可以使用`para.bullets()`将它添加到您的段落中。如果您需要不同的项目符号或编号样式，您必须使用`docx.Numbering`这个类。
 
-首先，您需要创建一个心得编号容器类，并使用它来创建抽象编号样式，定义您的级别，创建您的编号样式：
+首先，您需要创建一个新的编号容器类，并使用它来创建抽象编号样式，定义您的级别，创建您的编号样式：
 
 ```js
 const numbering = new docx.Numbering();
@@ -49,7 +49,7 @@ subP.setNumbering(concrete, 1);
 subSubP.setNumbering(concrete, 2);
 ```
 
-最终，当您准备渲染文档的时候，你你需要让输出端了解您的编号样式：
+最终，当您准备渲染文档的时候，你需要让输出端了解您的编号样式：
 
 ```js
 const packer = new Packer(doc, undefined, undefined, numbering);

@@ -17,5 +17,5 @@ doc.addParagraph(paragraph2);
 
 ### 这将产生:
 
-*   项目符号
+*   Bullet points
 *   Are awesome

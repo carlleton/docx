@@ -8,7 +8,7 @@
 
 * 用法
 
-	* [文献](usage/document.md)
+	* [文档](usage/document.md)
 	* [段落](usage/paragraph.md)
 	* [文本](usage/text.md)
 	* [图片](usage/images.md)
